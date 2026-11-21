@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Gabira Giving Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1>Gabira Giving Portal
+        <span class="tagline">Give together. Change lives.</span>
+      </h1>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="navGreeting" style="display:none;"></li>
+          <li id="navLoginItem"><a href="login.html">Login</a></li>
+          <li id="navRegisterItem"><a href="register.html" class="nav-cta" aria-current="page">Register</a></li>
+          <li id="navDashboardItem" style="display:none;"><a href="#" id="navDashboardLink">Dashboard</a></li>
+          <li id="navLogoutItem" style="display:none;"><a href="#" id="navLogoutLink">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-wrap">
+      <h2 class="section-title">Create an Account</h2>
+
+      <div class="role-tabs" role="tablist" aria-label="Choose account type">
+        <button type="button" class="active" data-target="donorPanel" role="tab" aria-selected="true">I'm a Donor</button>
+        <button type="button" data-target="charityPanel" role="tab" aria-selected="false">I'm a Charity</button>
+      </div>
+
+      <!-- ===================== DONOR REGISTRATION ===================== -->
+      <section id="donorPanel" class="auth-panel active">
+        <form class="app-form" id="donorRegisterForm" novalidate>
+          <h2>Donor Registration</h2>
+          <p class="form-sub">Create a donor account to start giving and tracking your pledges.</p>
+
+          <div class="form-row">
+            <label for="donorName">Full Name</label>
+            <input placeholder=" " type="text" id="donorName" name="name" required minlength="2" maxlength="60"
+                   pattern="[A-Za-z\s'-]+"
+                   title="Letters, spaces, hyphens and apostrophes only (min 2 characters).">
+          </div>
+
+          <div class="form-row">
+            <label for="donorEmail">Email Address</label>
+            <input placeholder=" " type="email" id="donorEmail" name="email" required
+                   title="Please enter a valid email address.">
+          </div>
+
+          <div class="form-row">
+            <label for="donorPhone">Phone Number</label>
+            <input type="tel" id="donorPhone" name="phone" required
+                   pattern="0[0-9]{9}"
+                   placeholder="07XXXXXXXX"
+                   title="Enter a 10-digit phone number starting with 0, e.g. 0788123456.">
+          </div>
+
+          <div class="form-row">
+            <label for="donorPassword">Password</label>
+            <input placeholder=" " type="password" id="donorPassword" name="password" required
+                   minlength="8"
+                   pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+                   title="At least 8 characters, including a letter and a number.">
+            <div class="strength-meter"><span id="donorStrengthBar"></span></div>
+            <span class="hint" id="donorStrengthLabel"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="donorConfirm">Confirm Password</label>
+            <input placeholder=" " type="password" id="donorConfirm" name="confirm" required
+                   title="Please re-enter your password.">
+          </div>
+
+          <div class="form-row">
+            <label>
+              <input type="checkbox" required style="width:auto;"> I agree to the Terms &amp; Privacy Policy
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Create Donor Account</button>
+          <div class="form-msg" id="donorRegisterMsg"></div>
+        </form>
+      </section>
+
+      <!-- ===================== CHARITY REGISTRATION ===================== -->
+      <section id="charityPanel" class="auth-panel">
+        <form class="app-form" id="charityRegisterForm" novalidate>
+          <h2>Charity Registration</h2>
+          <p class="form-sub">Register your organization to receive and manage donations.</p>
+
+          <div class="form-row">
+            <label for="charityName">Organization Name</label>
+            <input placeholder=" " type="text" id="charityName" name="name" required minlength="3" maxlength="80"
+                   title="Please enter your organization's name (at least 3 characters).">
+          </div>
+
+          <div class="form-row">
+            <label for="charityReg">Registration Number</label>
+            <input type="text" id="charityReg" name="regNumber" required
+                   pattern="NGO-\d{4}-\d{3}"
+                   placeholder="NGO-2026-001"
+                   title="Format: NGO-YYYY-XXX, e.g. NGO-2026-001.">
+          </div>
+
+          <div class="form-row">
+            <label for="charityCategory">Category</label>
+            <select id="charityCategory" name="category" required>
+              <option value="" disabled selected>Select a category</option>
+              <option value="Child Welfare">Child Welfare</option>
+              <option value="Education">Education</option>
+              <option value="Health">Health</option>
+              <option value="Environment">Environment</option>
+              <option value="Disaster Relief">Disaster Relief</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="charityEmail">Organization Email</label>
+            <input placeholder=" " type="email" id="charityEmail" name="email" required
+                   title="Please enter a valid email address.">
+          </div>
+
+          <div class="form-row">
+            <label for="charityPassword">Password</label>
+            <input placeholder=" " type="password" id="charityPassword" name="password" required
+                   minlength="8"
+                   pattern="(?=.*[A-Za-z])(?=.*\d).{8,}"
+                   title="At least 8 characters, including a letter and a number.">
+            <div class="strength-meter"><span id="charityStrengthBar"></span></div>
+            <span class="hint" id="charityStrengthLabel"></span>
+          </div>
+
+          <div class="form-row">
+            <label for="charityConfirm">Confirm Password</label>
+            <input placeholder=" " type="password" id="charityConfirm" name="confirm" required
+                   title="Please re-enter your password.">
+          </div>
+
+          <div class="form-row">
+            <label>
+              <input type="checkbox" required style="width:auto;"> I confirm this organization is a registered non-profit
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Create Charity Account</button>
+          <div class="form-msg" id="charityRegisterMsg"></div>
+        </form>
+      </section>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Log in here</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="footerYear"></span> Gabira Giving Portal. All rights reserved. |
+      <a href="contact.html">Contact Us</a>
+      <span class="clock-chip" id="liveClock"></span>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    wireRoleTabs();
+    wireStrengthMeter("donorPassword", "donorStrengthBar", "donorStrengthLabel");
+    wireStrengthMeter("charityPassword", "charityStrengthBar", "charityStrengthLabel");
+    wireConfirmPassword("donorPassword", "donorConfirm");
+    wireConfirmPassword("charityPassword", "charityConfirm");
+    wireRegisterForm("donorRegisterForm", "donor", "donorRegisterMsg");
+    wireRegisterForm("charityRegisterForm", "charity", "charityRegisterMsg");
+  </script>
+</body>
+</html>

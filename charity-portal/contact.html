@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Gabira Giving Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1>Gabira Giving Portal
+        <span class="tagline">Give together. Change lives.</span>
+      </h1>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li id="navGreeting" style="display:none;"></li>
+          <li id="navLoginItem"><a href="login.html">Login</a></li>
+          <li id="navRegisterItem"><a href="register.html" class="nav-cta">Register</a></li>
+          <li id="navDashboardItem" style="display:none;"><a href="#" id="navDashboardLink">Dashboard</a></li>
+          <li id="navLogoutItem" style="display:none;"><a href="#" id="navLogoutLink">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="contact-wrap">
+      <address>
+        <h2>Get in Touch</h2>
+        <p><strong>Address:</strong><br>
+          Gabira Giving Portal<br>
+          KG 15 Ave, Kacyiru<br>
+          Kigali, Rwanda
+        </p>
+        <p><strong>Telephone:</strong><br>
+          +250 788 123 456
+        </p>
+        <p><strong>Email:</strong><br>
+          hello@gabiragiving.rw
+        </p>
+      </address>
+
+      <form class="app-form" id="contactForm" action="#" method="post" novalidate>
+        <h2>Send Us a Message</h2>
+        <p class="form-sub">We usually reply within one business day.</p>
+
+        <div class="form-row">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder=" "
+                 minlength="2" maxlength="60" required
+                 title="Please enter your full name (at least 2 characters).">
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder=" " required
+                 title="Please enter a valid email address.">
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder=" "
+                 minlength="3" maxlength="80" required
+                 title="Please enter a subject (at least 3 characters).">
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder=" "
+                    minlength="10" maxlength="800" required
+                    title="Please enter a message of at least 10 characters."></textarea>
+          <span class="hint" id="messageCounter"></span>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="form-msg" id="contactMsg"></div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="footerYear"></span> Gabira Giving Portal. All rights reserved. |
+      <a href="contact.html">Contact Us</a>
+      <span class="clock-chip" id="liveClock"></span>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Inline page-specific JS: live character counter + friendly inline
+    // error messages layered on top of the native HTML5 validation.
+    const messageField = document.getElementById("message");
+    const counter = document.getElementById("messageCounter");
+
+    function updateCounter() {
+      const remaining = 800 - messageField.value.length;
+      counter.textContent = messageField.value.length + " / 800 characters";
+    }
+    messageField.addEventListener("input", updateCounter);
+    updateCounter();
+
+    // Show each field's native validation message inline (no alert boxes)
+    document.querySelectorAll("#contactForm input, #contactForm textarea").forEach((field) => {
+      field.addEventListener("invalid", () => {
+        const errorSpan = field.parentElement.querySelector(".field-error");
+        if (errorSpan) errorSpan.textContent = field.validationMessage;
+      });
+      field.addEventListener("input", () => {
+        const errorSpan = field.parentElement.querySelector(".field-error");
+        if (errorSpan && field.id !== "message") errorSpan.textContent = "";
+      });
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const msg = document.getElementById("contactMsg");
+      msg.textContent = "Thanks! Your message has been sent \u2014 we'll be in touch soon.";
+      msg.className = "form-msg show success";
+      form.reset();
+      updateCounter();
+    });
+  </script>
+</body>
+</html>

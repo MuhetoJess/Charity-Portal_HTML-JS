@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Gabira Giving Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1>Gabira Giving Portal
+        <span class="tagline">Give together. Change lives.</span>
+      </h1>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="navGreeting" style="display:none;"></li>
+          <li id="navLoginItem"><a href="login.html">Login</a></li>
+          <li id="navRegisterItem"><a href="register.html" class="nav-cta">Register</a></li>
+          <li id="navDashboardItem" style="display:none;"><a href="#" id="navDashboardLink">Dashboard</a></li>
+          <li id="navLogoutItem" style="display:none;"><a href="#" id="navLogoutLink">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-grid" aria-label="Featured causes">
+      <!-- IMAGE PLACEHOLDER: drop your photo in images/ and update the filename below.
+           Recommended size: roughly 1000x1000px or larger, landscape or square. -->
+      <a href="register.html" class="hero-tile hero-tile--featured hero-tile--flood"
+         style="background-image: url('images/rwanda_flood_relief.jpg');">
+        <span class="hero-tile__eyebrow">Rwanda</span>
+        <span class="hero-tile__title">Rwanda Flood Relief Fund</span>
+      </a>
+      <div class="hero-grid__side">
+        <!-- IMAGE PLACEHOLDER: images/hope-for-children.jpg (recommended ~700x450px) -->
+        <a href="register.html" class="hero-tile hero-tile--child"
+           style="background-image: url('images/Rwandan_children.png');">
+          <span class="tile-eyebrow">Kigali</span>
+          <span class="tile-title">Hope for Children Rwanda &mdash; School Meals</span>
+        </a>
+        <!-- IMAGE PLACEHOLDER: images/clean-water-initiative.jpg (recommended ~700x450px) -->
+        <a href="register.html" class="hero-tile hero-tile--water"
+           style="background-image: url('images/Rwanda_clean_water.jpg');">
+          <span class="tile-eyebrow">Nyagatare</span>
+          <span class="tile-title">Clean Water Initiative &mdash; Borehole Wells</span>
+        </a>
+        <!-- IMAGE PLACEHOLDER: images/girls-in-stem.jpg (recommended ~700x450px) -->
+        <a href="register.html" class="hero-tile hero-tile--edu"
+           style="background-image: url('images/Rwanda_girls_in_STEM.jpg');">
+          <span class="tile-eyebrow">Huye</span>
+          <span class="tile-title">Girls in STEM Scholarship Fund</span>
+        </a>
+        <!-- IMAGE PLACEHOLDER: images/community-health.jpg (recommended ~700x450px) -->
+        <a href="register.html" class="hero-tile hero-tile--health"
+           style="background-image: url('images/Rwanda_community.jpg');">
+          <span class="tile-eyebrow">Musanze</span>
+          <span class="tile-title">Community Health Outreach</span>
+        </a>
+      </div>
+    </section>
+
+    <nav class="cause-tabs" aria-label="Explore causes">
+      <span class="cause-tabs__label">Explore causes</span>
+      <button type="button" class="cause-tab active" data-filter="all">Featured</button>
+      <button type="button" class="cause-tab" data-filter="disaster">Disaster Response</button>
+      <button type="button" class="cause-tab" data-filter="child">Child Protection</button>
+      <button type="button" class="cause-tab" data-filter="water">Environment</button>
+      <button type="button" class="cause-tab" data-filter="education">Education</button>
+      <button type="button" class="cause-tab" data-filter="health">Health</button>
+    </nav>
+
+    <p style="color:var(--muted); font-size:0.9rem; margin:-1.6rem 0 2.5rem;">
+      Gabira connects generous donors with verified local charities across Rwanda.
+      Create an account, track every pledge you make, and see the real
+      difference your giving creates &mdash; all from one simple dashboard.
+    </p>
+
+    <section aria-labelledby="impact-heading">
+      <h2 class="section-title" id="impact-heading">Our Impact So Far</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="homeStatTotal">RWF 0</div>
+          <div class="stat-label">Total Donated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="homeStatDonors">0</div>
+          <div class="stat-label">Registered Donors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="homeStatCharities">0</div>
+          <div class="stat-label">Partner Charities</div>
+        </div>
+      </div>
+      <p class="hint">Figures are calculated live from our records each time this page loads.</p>
+    </section>
+
+    <section aria-labelledby="programs-heading">
+      <h2 class="section-title" id="programs-heading">Ways You Can Give</h2>
+      <div class="programs">
+        <article>
+          <h3>One-Time Donation</h3>
+          <p>
+            Support a cause you care about with a single pledge. Every gift is
+            tracked in your donor dashboard from the moment you give.
+          </p>
+        </article>
+
+        <article>
+          <h3>Monthly Giving</h3>
+          <p>
+            Set up a recurring pledge and provide charities with the steady
+            support they need to plan ahead and grow their programs.
+          </p>
+        </article>
+
+        <article>
+          <h3>Special Requests</h3>
+          <p>
+            Want your donation directed to a specific project? Leave a note
+            with your pledge and the charity will see it on their dashboard.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="footerYear"></span> Gabira Giving Portal. All rights reserved. |
+      <a href="contact.html">Contact Us</a>
+      <span class="clock-chip" id="liveClock"></span>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

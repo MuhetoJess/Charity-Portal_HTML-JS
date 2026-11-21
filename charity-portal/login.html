@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Gabira Giving Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1>Gabira Giving Portal
+        <span class="tagline">Give together. Change lives.</span>
+      </h1>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="navGreeting" style="display:none;"></li>
+          <li id="navLoginItem"><a href="login.html" aria-current="page">Login</a></li>
+          <li id="navRegisterItem"><a href="register.html" class="nav-cta">Register</a></li>
+          <li id="navDashboardItem" style="display:none;"><a href="#" id="navDashboardLink">Dashboard</a></li>
+          <li id="navLogoutItem" style="display:none;"><a href="#" id="navLogoutLink">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-wrap">
+      <h2 class="section-title">Log In</h2>
+
+      <div class="role-tabs" role="tablist" aria-label="Choose account type">
+        <button type="button" class="active" data-target="donorLoginPanel" role="tab" aria-selected="true">Donor Login</button>
+        <button type="button" data-target="charityLoginPanel" role="tab" aria-selected="false">Charity Login</button>
+      </div>
+
+      <!-- ===================== DONOR LOGIN ===================== -->
+      <section id="donorLoginPanel" class="auth-panel active">
+        <form class="app-form" id="donorLoginForm" novalidate>
+          <h2>Donor Login</h2>
+          <p class="form-sub">Try: <code>alice@example.com</code> / <code>Alice123</code></p>
+
+          <div class="form-row">
+            <label for="donorLoginEmail">Email Address</label>
+            <input placeholder=" " type="email" id="donorLoginEmail" name="email" required
+                   title="Please enter a valid email address.">
+          </div>
+
+          <div class="form-row">
+            <label for="donorLoginPassword">Password</label>
+            <input placeholder=" " type="password" id="donorLoginPassword" name="password" required minlength="6"
+                   title="Please enter your password.">
+          </div>
+
+          <button type="submit" class="submit-btn">Log In as Donor</button>
+          <div class="form-msg" id="donorLoginMsg"></div>
+        </form>
+      </section>
+
+      <!-- ===================== CHARITY LOGIN ===================== -->
+      <section id="charityLoginPanel" class="auth-panel">
+        <form class="app-form" id="charityLoginForm" novalidate>
+          <h2>Charity Login</h2>
+          <p class="form-sub">Try: <code>hope@example.org</code> / <code>Hope123</code></p>
+
+          <div class="form-row">
+            <label for="charityLoginEmail">Organization Email</label>
+            <input placeholder=" " type="email" id="charityLoginEmail" name="email" required
+                   title="Please enter a valid email address.">
+          </div>
+
+          <div class="form-row">
+            <label for="charityLoginPassword">Password</label>
+            <input placeholder=" " type="password" id="charityLoginPassword" name="password" required minlength="6"
+                   title="Please enter your password.">
+          </div>
+
+          <button type="submit" class="submit-btn">Log In as Charity</button>
+          <div class="form-msg" id="charityLoginMsg"></div>
+        </form>
+      </section>
+
+      <p class="auth-switch">New here? <a href="register.html">Create an account</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="footerYear"></span> Gabira Giving Portal. All rights reserved. |
+      <a href="contact.html">Contact Us</a>
+      <span class="clock-chip" id="liveClock"></span>
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    wireRoleTabs();
+    wireLoginForm("donorLoginForm", "donor", "donorLoginMsg");
+    wireLoginForm("charityLoginForm", "charity", "charityLoginMsg");
+  </script>
+</body>
+</html>
